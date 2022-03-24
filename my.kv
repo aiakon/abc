@@ -1,0 +1,70 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+<Label>
+    size_hint: 0.1,0.1
+    font_size:17
+    color: 0,0,0,1
+<ProgressBar>
+    min:0
+    max:100
+<Button>
+    size_hint:0.26,0.1
+
+ScreenManager:
+    transition: NoTransition()
+    id: screen_manager
+
+    MainPage:
+        name: 'mainpage'
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        FloatLayout:
+            Button:
+                text:"Camera"
+                size_hint: 0.4,0.4
+                pos_hint: {"x": 0.55, "y": 0.2}
+                on_release:
+                    app.root.current = "campage"
+
+
+    CamPage:
+        name: 'campage'
+        id: cam
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        FloatLayout:
+
+            Label:
+                text: " "
+                font_size: 19
+                pos_hint: {"x": 0.2, "top": 0.725}
+            Button:
+                text:"Geri"
+                size_hint: 0.333,0.075
+                pos_hint: {"x": 0, "top": 0.075}
+                on_release:
+                    app.root.current = "popup"
+            Button:
+                text:"Deney"
+                size_hint: 0.333,0.075
+                pos_hint: {"x": 0.333, "top": 0.075}
+                on_release:
+                    app.root.current = "exercisepage"
+            Button:
+                text:"Kamera"
+                size_hint: 0.333,0.075
+                pos_hint: {"x": 0.666, "top": 0.075}
+                on_release:
+                    app.root.current = "campage"
+
+
+
