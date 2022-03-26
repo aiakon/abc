@@ -1,6 +1,3 @@
-# python main.py -m screen:ipad
-# Yapılacaklar: global stopflag'i self.variable yap.
-
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.uix.image import Image
